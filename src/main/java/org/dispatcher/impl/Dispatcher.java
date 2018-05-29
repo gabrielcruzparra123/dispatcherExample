@@ -21,8 +21,19 @@ public class Dispatcher implements IDispatcher{
 	private Customer onlineCustomer;
 	private List<Customer> customers;
 	private LinkedList<Customer> pendingCustomers;
+	
+	private static final Dispatcher dispatcher= new Dispatcher();
 
-	public boolean dispatchCalling() {
+	
+	private Dispatcher() {
+		super();
+	}
+	
+	public static Dispatcher getInstance(){
+		return dispatcher;
+	}
+	
+	public boolean dispatchCall() {
 		// TODO Auto-generated method stub
 		
 		List<Employee> operators = this.getOperators();
@@ -69,6 +80,8 @@ public class Dispatcher implements IDispatcher{
 			calling.setCustomer(this.getOnlineCustomer());
 			calling.setAgent(this.getSelectedEmployee());
 			calling.setBegin(new Date());
+			calling.setState(IDispatcher.STATE_CALLING_ONLINE);
+			calling.setIdCalling(System.currentTimeMillis());
 			this.setEmployeeBusy(this.getSelectedEmployee());
 			DispatcherThread dispatcherThread = new DispatcherThread();
 			dispatcherThread.setCalling(calling);
