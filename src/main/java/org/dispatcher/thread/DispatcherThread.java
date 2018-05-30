@@ -30,6 +30,10 @@ public class DispatcherThread implements Runnable {
 		
 	}
 	
+	public void hangCalling() {
+		this.getCalling().setState(IDispatcher.STATE_CALLING_OUTLINE);
+	}
+	
 	public void run() {
 		// TODO Auto-generated method stub
 		this.attendCalling();
