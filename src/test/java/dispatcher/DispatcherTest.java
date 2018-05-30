@@ -22,12 +22,17 @@ import org.junit.Test;
  *
  */
 public class DispatcherTest {
-		
-	@Test
+	
+	@Test	
 	public void test1() {
 		try {
-		
-			this.loadEmployees();
+			if(Dispatcher.getInstance().getOperators()!=null) {
+				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					this.loadEmployees();
+				}	
+			}else {
+				this.loadEmployees();
+			}
 		
 			Customer customer = new Customer(1L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("JOHANN","BARRERA","SANCHEZ","80796901",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
@@ -46,181 +51,340 @@ public class DispatcherTest {
 		}
 	}
 	
-	
 	@Test
 	public void test2() {
 		try {
-		this.loadEmployees();
-		Customer customer = new Customer(2L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("JULIETH","SARMIENTO","PALACIO","80796902",new Date()));
-		Dispatcher.getInstance().setOnlineCustomer(customer);
-		int expectedResult = 1;
-		boolean resultBoolean = Dispatcher.getInstance().dispatchCall();
-		int result = 0;
-		if (resultBoolean) {
-			result= 1;
+			if(Dispatcher.getInstance().getOperators()!=null) {
+				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					this.loadEmployees();
+				}	
+			}else {
+				this.loadEmployees();
+			}
+			Customer customer = new Customer(2L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("JULIETH","SARMIENTO","PALACIO","80796902",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			int expectedResult = 1;
+			boolean resultBoolean = Dispatcher.getInstance().dispatchCall();
+			int result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+		}catch(Exception e) {
+			fail("Error: "+e.getMessage());
 		}
-		assertEquals(expectedResult, result, 1);
-	}catch(Exception e) {
-		fail("Error: "+e.getMessage());
-	}
 	}
 	
 	@Test
 	public void test3() {
 		try {
-		this.loadEmployees();
+			if(Dispatcher.getInstance().getOperators()!=null) {
+				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					this.loadEmployees();
+				}	
+			}else {
+				this.loadEmployees();
+			}
 		
-		Customer customer = new Customer(3L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("CINDY","AVILA","CRUZ","80796903",new Date()));
-		Dispatcher.getInstance().setOnlineCustomer(customer);
-		int expectedResult = 1;
-		boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
-		int result = 0;
+			Customer customer = new Customer(3L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("CINDY","AVILA","CRUZ","80796903",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			int expectedResult = 1;
+			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
+			int result = 0;
 		
-		if (resultBoolean) {
-			result= 1;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+		}catch(Exception e) {
+			fail("Error: "+e.getMessage());
 		}
-		assertEquals(expectedResult, result, 1);
-	}catch(Exception e) {
-		fail("Error: "+e.getMessage());
-	}
 	}
 	
 	@Test
 	public void test4() {
 		try {
-		this.loadEmployees();
+			if(Dispatcher.getInstance().getOperators()!=null) {
+				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					this.loadEmployees();
+				}	
+			}else {
+				this.loadEmployees();
+			}
 		
-		Customer customer = new Customer(4L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("VIVIANA","LEGUIZAMON","MONROY","80796904",new Date()));
-		Dispatcher.getInstance().setOnlineCustomer(customer);
-		int expectedResult = 1;
-		boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
-		int result = 0;
-		if (resultBoolean) {
-			result= 1;
+			Customer customer = new Customer(4L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("VIVIANA","LEGUIZAMON","MONROY","80796904",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			int expectedResult = 1;
+			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
+			int result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+		}catch(Exception e) {
+			fail("Error: "+e.getMessage());
 		}
-		assertEquals(expectedResult, result, 1);
-	}catch(Exception e) {
-		fail("Error: "+e.getMessage());
-	}
 	}
 	
 	@Test
 	public void test5() {
 		try {
-		this.loadEmployees();
+			if(Dispatcher.getInstance().getOperators()!=null) {
+				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					this.loadEmployees();
+				}	
+			}else {
+				this.loadEmployees();
+			}
 		
 		
-		Customer customer = new Customer(5L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("HELENA","PERILLA","PEDRAZA","80796905",new Date()));
-		Dispatcher.getInstance().setOnlineCustomer(customer);
-		boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
-		int expectedResult = 1;
-		int result = 0;
-		if (resultBoolean) {
-			result= 1;
+			Customer customer = new Customer(5L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("HELENA","PERILLA","PEDRAZA","80796905",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
+			int expectedResult = 1;
+			int result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+		}catch(Exception e) {
+			fail("Error: "+e.getMessage());
 		}
-		assertEquals(expectedResult, result, 1);
-	}catch(Exception e) {
-		fail("Error: "+e.getMessage());
-	}
 	}
 	
 	@Test
 	public void test6() {
 		try {
-		this.loadEmployees();
-		Customer customer = new Customer(6L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("OLGA","SARMIENTO","CACERES","80796906",new Date()));
-		Dispatcher.getInstance().setOnlineCustomer(customer);
-		int expectedResult = 1;
-		boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
-		int result = 0;
-		if (resultBoolean) {
-			result= 1;
+			if(Dispatcher.getInstance().getOperators()!=null) {
+				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					this.loadEmployees();
+				}	
+			}else {
+				this.loadEmployees();
+			}
+			Customer customer = new Customer(6L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("OLGA","SARMIENTO","CACERES","80796906",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			int expectedResult = 1;
+			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
+			int result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+		}catch(Exception e) {
+			fail("Error: "+e.getMessage());
 		}
-		assertEquals(expectedResult, result, 1);
-	}catch(Exception e) {
-		fail("Error: "+e.getMessage());
-	}
 	}
 	
 	@Test
 	public void test7() {
 		try {
-		this.loadEmployees();
-
-		Customer customer = new Customer(7L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("MICHAEL","COTRINA","CASTRO","80796907",new Date()));
-		Dispatcher.getInstance().setOnlineCustomer(customer);
-		int expectedResult = 1;
-		boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
-		int result = 0;
-		if (resultBoolean) {
-			result= 1;
+			if(Dispatcher.getInstance().getOperators()!=null) {
+				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					this.loadEmployees();
+				}	
+			}else {
+				this.loadEmployees();
+			}
+			Customer customer = new Customer(7L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("MICHAEL","COTRINA","CASTRO","80796907",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			int expectedResult = 1;
+			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
+			int result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+		}catch(Exception e) {
+			fail("Error: "+e.getMessage());
 		}
-		assertEquals(expectedResult, result, 1);
-	}catch(Exception e) {
-		fail("Error: "+e.getMessage());
-	}
 	}
 	
-
 	@Test
 	public void test8() {
 		try {
-		this.loadEmployees();
+			if(Dispatcher.getInstance().getOperators()!=null) {
+				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					this.loadEmployees();
+				}	
+			}else {
+				this.loadEmployees();
+			}
 
-		Customer customer = new Customer(8L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("WILLIAM","RICO","ROJAS","80796908",new Date()));
-		Dispatcher.getInstance().setOnlineCustomer(customer);
-		int expectedResult = 1;
-		boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
-		int result = 0;
-		if (resultBoolean) {
-			result= 1;
+			Customer customer = new Customer(8L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("WILLIAM","RICO","ROJAS","80796908",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			int expectedResult = 1;
+			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
+			int result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+			
+			
+		}catch(Exception e) {
+			fail("Error: "+e.getMessage());
 		}
-		assertEquals(expectedResult, result, 1);
-	}catch(Exception e) {
-		fail("Error: "+e.getMessage());
-	}
 	}
 	
-
 	@Test
 	public void test9() {
 		try {
-		this.loadEmployees();
+			if(Dispatcher.getInstance().getOperators()!=null) {
+				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					this.loadEmployees();
+				}	
+			}else {
+				this.loadEmployees();
+			}
 		
-		Customer customer = new Customer(9L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("ANDREY","FIGUEROA","FERNANDEZ","80796909",new Date()));
-		Dispatcher.getInstance().setOnlineCustomer(customer);
-		int expectedResult = 1;
-		boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
-		int result = 0;
-		if (resultBoolean) {
-			result= 1;
+			Customer customer = new Customer(9L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("ANDREY","FIGUEROA","FERNANDEZ","80796909",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			int expectedResult = 1;
+			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
+			int result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+			
+			
+		}catch(Exception e) {
+			fail("Error: "+e.getMessage());
 		}
-		assertEquals(expectedResult, result, 1);
-	}catch(Exception e) {
-		fail("Error: "+e.getMessage());
 	}
-	}
-	
-	
 	@Test
 	public void test10() {
 		try {
-		this.loadEmployees();
+			if(Dispatcher.getInstance().getOperators()!=null) {
+				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					this.loadEmployees();
+				}	
+			}else {
+				this.loadEmployees();
+			}
 		
-		Customer customer = new Customer(10L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("CARLOS ALBERTO","CLAVIJO","ACEVEDO","80796910",new Date()));
-		Dispatcher.getInstance().setOnlineCustomer(customer);
-		boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
-		int expectedResult = 1;
-		int result = 0;
-		if (resultBoolean) {
-			result= 1;
+			Customer customer = new Customer(10L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("CARLOS ALBERTO","CLAVIJO","ACEVEDO","80796910",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
+			int expectedResult = 1;
+			int result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+		}catch(Exception e) {
+			fail("Error: "+e.getMessage());
 		}
-		assertEquals(expectedResult, result, 1);
-	}catch(Exception e) {
-		fail("Error: "+e.getMessage());
-	}
 	}
 	
+	@Test
+	public void testCallings() {
+		try {
+			if(Dispatcher.getInstance().getOperators()!=null) {
+				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					this.loadEmployees();
+				}	
+			}else {
+				this.loadEmployees();
+			}
+		
+			Customer customer = new Customer(1L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("JOHANN","BARRERA","SANCHEZ","80796901",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			int expectedResult = 1;
+			boolean resultBoolean = Dispatcher.getInstance().dispatchCall();
+			int result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+			
+			customer = new Customer(2L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("JULIETH","SARMIENTO","PALACIO","80796902",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			resultBoolean = Dispatcher.getInstance().dispatchCall();
+			result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+			
+			customer = new Customer(3L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("CINDY","AVILA","CRUZ","80796903",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			resultBoolean =Dispatcher.getInstance().dispatchCall();
+			result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+			
+			 customer = new Customer(4L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("VIVIANA","LEGUIZAMON","MONROY","80796904",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			resultBoolean =Dispatcher.getInstance().dispatchCall();
+			result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+			
+			customer = new Customer(5L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("HELENA","PERILLA","PEDRAZA","80796905",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			resultBoolean =Dispatcher.getInstance().dispatchCall();
+			result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+			
+			customer = new Customer(6L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("OLGA","SARMIENTO","CACERES","80796906",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);			
+			resultBoolean =Dispatcher.getInstance().dispatchCall();
+			result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+			
+			customer = new Customer(7L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("MICHAEL","COTRINA","CASTRO","80796907",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			
+			resultBoolean =Dispatcher.getInstance().dispatchCall();
+			result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+			
+			customer = new Customer(8L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("WILLIAM","RICO","ROJAS","80796908",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			resultBoolean =Dispatcher.getInstance().dispatchCall();
+			result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+			
+			customer = new Customer(9L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("ANDREY","FIGUEROA","FERNANDEZ","80796909",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			resultBoolean =Dispatcher.getInstance().dispatchCall();
+			result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+			
+			customer = new Customer(10L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("CARLOS ALBERTO","CLAVIJO","ACEVEDO","80796910",new Date()));
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			resultBoolean =Dispatcher.getInstance().dispatchCall();
+			result = 0;
+			if (resultBoolean) {
+				result= 1;
+			}
+			assertEquals(expectedResult, result, 1);
+		
+		}catch(Exception e) {
+			fail("Error: "+e.getMessage());
+		}
+	}
 	
 	public void loadEmployees() {
 		List<Employee> generalEmployees = new ArrayList<Employee>();
@@ -266,7 +430,17 @@ public class DispatcherTest {
 	}
 	
 	public static void main(String[] args) {
-		
+		DispatcherTest test = new DispatcherTest();
+		test.test1();
+		test.test2();
+		test.test3();
+		test.test4();
+		test.test5();
+		test.test6();
+		test.test7();
+		test.test8();
+		test.test9();
+		test.test10();
 	}
 
 }
