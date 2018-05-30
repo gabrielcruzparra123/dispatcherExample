@@ -42,13 +42,14 @@ public class DispatcherTest {
 			
 		
 		}catch(Exception e) {
-			fail("Not yet implemented: "+e.getMessage());
+			fail("Error: "+e.getMessage());
 		}
 	}
 	
 	
 	@Test
 	public void test2() {
+		try {
 		this.loadEmployees();
 		Customer customer = new Customer(2L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("JULIETH","SARMIENTO","PALACIO","80796902",new Date()));
 		Dispatcher.getInstance().setOnlineCustomer(customer);
@@ -59,10 +60,14 @@ public class DispatcherTest {
 			result= 1;
 		}
 		assertEquals(expectedResult, result, 1);
+	}catch(Exception e) {
+		fail("Error: "+e.getMessage());
+	}
 	}
 	
 	@Test
 	public void test3() {
+		try {
 		this.loadEmployees();
 		
 		Customer customer = new Customer(3L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("CINDY","AVILA","CRUZ","80796903",new Date()));
@@ -75,10 +80,14 @@ public class DispatcherTest {
 			result= 1;
 		}
 		assertEquals(expectedResult, result, 1);
+	}catch(Exception e) {
+		fail("Error: "+e.getMessage());
+	}
 	}
 	
 	@Test
 	public void test4() {
+		try {
 		this.loadEmployees();
 		
 		Customer customer = new Customer(4L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("VIVIANA","LEGUIZAMON","MONROY","80796904",new Date()));
@@ -90,10 +99,14 @@ public class DispatcherTest {
 			result= 1;
 		}
 		assertEquals(expectedResult, result, 1);
+	}catch(Exception e) {
+		fail("Error: "+e.getMessage());
+	}
 	}
 	
 	@Test
 	public void test5() {
+		try {
 		this.loadEmployees();
 		
 		
@@ -106,10 +119,14 @@ public class DispatcherTest {
 			result= 1;
 		}
 		assertEquals(expectedResult, result, 1);
+	}catch(Exception e) {
+		fail("Error: "+e.getMessage());
+	}
 	}
 	
 	@Test
 	public void test6() {
+		try {
 		this.loadEmployees();
 		Customer customer = new Customer(6L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("OLGA","SARMIENTO","CACERES","80796906",new Date()));
 		Dispatcher.getInstance().setOnlineCustomer(customer);
@@ -120,10 +137,14 @@ public class DispatcherTest {
 			result= 1;
 		}
 		assertEquals(expectedResult, result, 1);
+	}catch(Exception e) {
+		fail("Error: "+e.getMessage());
+	}
 	}
 	
 	@Test
 	public void test7() {
+		try {
 		this.loadEmployees();
 
 		Customer customer = new Customer(7L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("MICHAEL","COTRINA","CASTRO","80796907",new Date()));
@@ -135,11 +156,15 @@ public class DispatcherTest {
 			result= 1;
 		}
 		assertEquals(expectedResult, result, 1);
+	}catch(Exception e) {
+		fail("Error: "+e.getMessage());
+	}
 	}
 	
 
 	@Test
 	public void test8() {
+		try {
 		this.loadEmployees();
 
 		Customer customer = new Customer(8L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("WILLIAM","RICO","ROJAS","80796908",new Date()));
@@ -151,11 +176,15 @@ public class DispatcherTest {
 			result= 1;
 		}
 		assertEquals(expectedResult, result, 1);
+	}catch(Exception e) {
+		fail("Error: "+e.getMessage());
+	}
 	}
 	
 
 	@Test
 	public void test9() {
+		try {
 		this.loadEmployees();
 		
 		Customer customer = new Customer(9L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("ANDREY","FIGUEROA","FERNANDEZ","80796909",new Date()));
@@ -167,11 +196,15 @@ public class DispatcherTest {
 			result= 1;
 		}
 		assertEquals(expectedResult, result, 1);
+	}catch(Exception e) {
+		fail("Error: "+e.getMessage());
+	}
 	}
 	
 	
 	@Test
 	public void test10() {
+		try {
 		this.loadEmployees();
 		
 		Customer customer = new Customer(10L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("CARLOS ALBERTO","CLAVIJO","ACEVEDO","80796910",new Date()));
@@ -183,6 +216,9 @@ public class DispatcherTest {
 			result= 1;
 		}
 		assertEquals(expectedResult, result, 1);
+	}catch(Exception e) {
+		fail("Error: "+e.getMessage());
+	}
 	}
 	
 	

@@ -21,6 +21,7 @@ public class Dispatcher implements IDispatcher{
 	private Customer onlineCustomer;
 	private List<Customer> customers;
 	private LinkedList<Customer> pendingCustomers;
+	private List<Calling> callings;
 	
 	private static final Dispatcher dispatcher= new Dispatcher();
 
@@ -88,7 +89,7 @@ public class Dispatcher implements IDispatcher{
 			dispatcherThread.run();
 			this.setCallingQuantity(this.getCallingQuantity()+1);
 		}else {
-			
+			this.getPendingCustomers().add(this.getOnlineCustomer());
 		}
 		
 		return true;
@@ -190,6 +191,14 @@ public class Dispatcher implements IDispatcher{
 
 	public void setPendingCustomers(LinkedList<Customer> pendingCustomers) {
 		this.pendingCustomers = pendingCustomers;
+	}
+
+	public List<Calling> getCallings() {
+		return callings;
+	}
+
+	public void setCallings(List<Calling> callings) {
+		this.callings = callings;
 	}
 
 }
