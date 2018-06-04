@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 import org.dispatcher.bean.Calling;
 import org.dispatcher.framework.inter.IDispatcher;
 
-public class DispatcherThread implements Runnable {
+public class DispatcherThread extends Thread {
 	
 	private Calling calling;
 	protected static Logger log = Logger.getLogger(DispatcherThread.class);

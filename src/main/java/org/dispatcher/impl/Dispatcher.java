@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.dispatcher.bean.Calling;
 import org.dispatcher.bean.Customer;
 import org.dispatcher.bean.Employee;
@@ -24,6 +25,7 @@ public class Dispatcher implements IDispatcher{
 	private List<Calling> callings;
 	
 	private static final Dispatcher dispatcher= new Dispatcher();
+	protected static Logger log = Logger.getLogger(Dispatcher.class);
 
 	
 	private Dispatcher() {
@@ -34,8 +36,7 @@ public class Dispatcher implements IDispatcher{
 		return dispatcher;
 	}
 	
-	public boolean dispatchCall() {
-		// TODO Auto-generated method stub
+	public void selectEmployee() {
 		
 		List<Employee> operators = this.getOperators();
 		Iterator<Employee> operatorsIterator = operators.iterator();
@@ -43,6 +44,10 @@ public class Dispatcher implements IDispatcher{
 			Employee employee = operatorsIterator.next();
 			if (employee.getState().equalsIgnoreCase(IDispatcher.STATE_AVAILABLE)) {
 				if(this.getSelectedEmployee()== null) {
+					log.info("Available employee: "+employee.getPerson().getName()+" "+
+							employee.getPerson().getMiddleName()+" "+
+							employee.getPerson().getLastName()
+							);
 					this.setSelectedEmployee(employee);
 				}
 			}
@@ -56,6 +61,10 @@ public class Dispatcher implements IDispatcher{
 				Employee employee = supervisorsIterator.next();
 				if (employee.getState().equalsIgnoreCase(IDispatcher.STATE_AVAILABLE)) {
 					if(this.getSelectedEmployee()== null) {
+						log.info("Available employee: "+employee.getPerson().getName()+" "+
+								employee.getPerson().getMiddleName()+" "+
+								employee.getPerson().getLastName()
+								);
 						this.setSelectedEmployee(employee);
 					}
 				}
@@ -69,14 +78,25 @@ public class Dispatcher implements IDispatcher{
 				Employee employee = directorsIterator.next();
 				if (employee.getState().equalsIgnoreCase(IDispatcher.STATE_AVAILABLE)) {
 					if(this.getSelectedEmployee()== null) {
+						log.info("Available employee: "+employee.getPerson().getName()+" "+
+								employee.getPerson().getMiddleName()+" "+
+								employee.getPerson().getLastName()
+								);
 						this.setSelectedEmployee(employee);
 					}
 				}
 			}
 		}
 		
+	}
+	
+	public boolean dispatchCall() {
+		// TODO Auto-generated method stub
+		
+		this.selectEmployee();
 		int quantity = this.getCallingQuantity();
 		if(quantity<IDispatcher.MAXIMUM_CONCURRENT_CALLINGS) {
+			try {
 			Calling calling = new Calling();
 			calling.setCustomer(this.getOnlineCustomer());
 			calling.setAgent(this.getSelectedEmployee());
@@ -86,8 +106,13 @@ public class Dispatcher implements IDispatcher{
 			this.setEmployeeBusy(this.getSelectedEmployee());
 			DispatcherThread dispatcherThread = new DispatcherThread();
 			dispatcherThread.setCalling(calling);
-			dispatcherThread.run();
+			dispatcherThread.start();
 			this.setCallingQuantity(this.getCallingQuantity()+1);
+			this.freeSelectedEmployee();
+			} catch(Exception e) {
+				log.info("Error: "+e.getMessage());
+				e.printStackTrace();
+			}
 		}else {
 			this.getPendingCustomers().add(this.getOnlineCustomer());
 		}
@@ -100,24 +125,45 @@ public class Dispatcher implements IDispatcher{
 		List<Employee> operators = this.getOperators();
 		Iterator<Employee> operatorsIterator = operators.iterator();
 		while(operatorsIterator.hasNext()) {
-			if (employee.getPerson().getIdNumber().equalsIgnoreCase(operatorsIterator.next().getPerson().getIdNumber())) {
-					operatorsIterator.next().setState(IDispatcher.STATE_BUSY);
+			Employee employeeToEvaluate = operatorsIterator.next();
+			if (employee.getPerson().getIdNumber().equalsIgnoreCase(
+					employeeToEvaluate.getPerson().getIdNumber())) {
+						log.info("Employee operator to set busy: "+
+								"Name: "+employeeToEvaluate.getPerson().getName()+" "+
+								employeeToEvaluate.getPerson().getMiddleName()+" "+
+								employeeToEvaluate.getPerson().getLastName()+" "+
+								employeeToEvaluate.getPerson().getIdNumber());
+					employeeToEvaluate.setState(IDispatcher.STATE_BUSY);
 			}
 		}
 		
 		List<Employee> supervisors = this.getSupervisors();
 		Iterator<Employee> supervisorsIterator = supervisors.iterator();
 		while(supervisorsIterator.hasNext()) {
-			if (employee.getPerson().getIdNumber().equalsIgnoreCase(supervisorsIterator.next().getPerson().getIdNumber())) {
-				supervisorsIterator.next().setState(IDispatcher.STATE_BUSY);
+			Employee employeeToEvaluate = supervisorsIterator.next();
+			if (employee.getPerson().getIdNumber().equalsIgnoreCase(
+					employeeToEvaluate.getPerson().getIdNumber())) {
+						log.info("Employee operator to set busy: "+
+								"Name: "+employeeToEvaluate.getPerson().getName()+" "+
+								employeeToEvaluate.getPerson().getMiddleName()+" "+
+								employeeToEvaluate.getPerson().getLastName()+" "+
+								employeeToEvaluate.getPerson().getIdNumber());
+					employeeToEvaluate.setState(IDispatcher.STATE_BUSY);
 			}
 		}
 		
 		List<Employee> directors = this.getDirectors();
 		Iterator<Employee> directorsIterator = directors.iterator();
 		while(directorsIterator.hasNext()) {
-			if (employee.getPerson().getIdNumber().equalsIgnoreCase(directorsIterator.next().getPerson().getIdNumber())) {
-				directorsIterator.next().setState(IDispatcher.STATE_BUSY);
+			Employee employeeToEvaluate = directorsIterator.next();
+			if (employee.getPerson().getIdNumber().equalsIgnoreCase(
+					employeeToEvaluate.getPerson().getIdNumber())) {
+						log.info("Employee operator to set busy: "+
+								"Name: "+employeeToEvaluate.getPerson().getName()+" "+
+								employeeToEvaluate.getPerson().getMiddleName()+" "+
+								employeeToEvaluate.getPerson().getLastName()+" "+
+								employeeToEvaluate.getPerson().getIdNumber());
+					employeeToEvaluate.setState(IDispatcher.STATE_BUSY);
 			}
 		}
 	}

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.dispatcher.bean.Customer;
 import org.dispatcher.bean.Employee;
 import org.dispatcher.bean.Person;
@@ -23,14 +24,18 @@ import org.junit.Test;
  */
 public class DispatcherTest {
 	
+	protected static Logger log = Logger.getLogger(DispatcherTest.class);
+	
 	@Test	
 	public void test1() {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
 				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					log.info("No operators [size 0], filling lists ..");
 					this.loadEmployees();
 				}	
 			}else {
+				log.info("No operators [NULL], filling lists ..");
 				this.loadEmployees();
 			}
 		
@@ -56,9 +61,11 @@ public class DispatcherTest {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
 				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					log.info("No operators [size 0], filling lists ..");
 					this.loadEmployees();
 				}	
 			}else {
+				log.info("No operators [NULL], filling lists ..");
 				this.loadEmployees();
 			}
 			Customer customer = new Customer(2L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("JULIETH","SARMIENTO","PALACIO","80796902",new Date()));
@@ -80,9 +87,11 @@ public class DispatcherTest {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
 				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					log.info("No operators [size 0], filling lists ..");
 					this.loadEmployees();
 				}	
 			}else {
+				log.info("No operators [NULL], filling lists ..");
 				this.loadEmployees();
 			}
 		
@@ -106,9 +115,11 @@ public class DispatcherTest {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
 				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					log.info("No operators [size 0], filling lists ..");
 					this.loadEmployees();
 				}	
 			}else {
+				log.info("No operators [NULL], filling lists ..");
 				this.loadEmployees();
 			}
 		
@@ -131,9 +142,11 @@ public class DispatcherTest {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
 				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					log.info("No operators [size 0], filling lists ..");
 					this.loadEmployees();
 				}	
 			}else {
+				log.info("No operators [NULL], filling lists ..");
 				this.loadEmployees();
 			}
 		
@@ -157,9 +170,11 @@ public class DispatcherTest {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
 				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					log.info("No operators [size 0], filling lists ..");
 					this.loadEmployees();
 				}	
 			}else {
+				log.info("No operators [NULL], filling lists ..");
 				this.loadEmployees();
 			}
 			Customer customer = new Customer(6L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("OLGA","SARMIENTO","CACERES","80796906",new Date()));
@@ -181,9 +196,11 @@ public class DispatcherTest {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
 				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					log.info("No operators [size 0], filling lists ..");
 					this.loadEmployees();
 				}	
 			}else {
+				log.info("No operators [NULL], filling lists ..");
 				this.loadEmployees();
 			}
 			Customer customer = new Customer(7L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("MICHAEL","COTRINA","CASTRO","80796907",new Date()));
@@ -205,9 +222,11 @@ public class DispatcherTest {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
 				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					log.info("No operators [size 0], filling lists ..");
 					this.loadEmployees();
 				}	
 			}else {
+				log.info("No operators [NULL], filling lists ..");
 				this.loadEmployees();
 			}
 
@@ -232,9 +251,11 @@ public class DispatcherTest {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
 				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					log.info("No operators [size 0], filling lists ..");
 					this.loadEmployees();
 				}	
 			}else {
+				log.info("No operators [NULL], filling lists ..");
 				this.loadEmployees();
 			}
 		
@@ -258,9 +279,11 @@ public class DispatcherTest {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
 				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					log.info("No operators [size 0], filling lists ..");
 					this.loadEmployees();
 				}	
 			}else {
+				log.info("No operators [NULL], filling lists ..");
 				this.loadEmployees();
 			}
 		
@@ -283,6 +306,7 @@ public class DispatcherTest {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
 				if(Dispatcher.getInstance().getOperators().size()<=0) {
+					log.info("No operators, filling lists ..");
 					this.loadEmployees();
 				}	
 			}else {
@@ -405,9 +429,9 @@ public class DispatcherTest {
 		generalEmployees.add(new Employee(14L, IDispatcher.STATE_AVAILABLE, IDispatcher.EMPLOYEE_POSITION_SUPERVISOR, 5700000d, new Person ("ALDO","HERNANDEZ","PAEZ","80795904",new Date())));
 		generalEmployees.add(new Employee(15L, IDispatcher.STATE_AVAILABLE, IDispatcher.EMPLOYEE_POSITION_SUPERVISOR,5800000d, new Person ("SANDRA","PERILLA","MONROY","80795905",new Date())));
 		
-		generalEmployees.add(new Employee(16L, IDispatcher.STATE_AVAILABLE, IDispatcher.EMPLOYEE_POSITION_DIRECTOR, 7000000d, new Person ("SONIA","FAJARDO","OSPINA","80795901",new Date())));
-		generalEmployees.add(new Employee(17L, IDispatcher.STATE_AVAILABLE, IDispatcher.EMPLOYEE_POSITION_DIRECTOR, 7500000d, new Person ("LINA","URIBE","HERNANDEZ","80795902",new Date())));
-		generalEmployees.add(new Employee(18L, IDispatcher.STATE_AVAILABLE, IDispatcher.EMPLOYEE_POSITION_DIRECTOR, 7600000d, new Person ("LUIS FERNANDO","ARAGON","ALCANTARA","80795903",new Date())));
+		generalEmployees.add(new Employee(16L, IDispatcher.STATE_AVAILABLE, IDispatcher.EMPLOYEE_POSITION_DIRECTOR, 7000000d, new Person ("SONIA","FAJARDO","OSPINA","80796901",new Date())));
+		generalEmployees.add(new Employee(17L, IDispatcher.STATE_AVAILABLE, IDispatcher.EMPLOYEE_POSITION_DIRECTOR, 7500000d, new Person ("LINA","URIBE","HERNANDEZ","80796902",new Date())));
+		generalEmployees.add(new Employee(18L, IDispatcher.STATE_AVAILABLE, IDispatcher.EMPLOYEE_POSITION_DIRECTOR, 7600000d, new Person ("LUIS FERNANDO","ARAGON","ALCANTARA","80796903",new Date())));
 		
 		List<Employee> operators = new ArrayList<Employee>();
 		List<Employee> supervisors = new ArrayList<Employee>();
@@ -426,6 +450,17 @@ public class DispatcherTest {
 		Dispatcher.getInstance().setOperators(operators);
 		Dispatcher.getInstance().setSupervisors(supervisors);
 		Dispatcher.getInstance().setDirectors(directors);
+		
+	}
+	
+	public void printOperators() {
+		for(Employee employee :Dispatcher.getInstance().getOperators()) {
+			log.info("Name: "+employee.getPerson().getName()+" "+
+					employee.getPerson().getMiddleName()+" "+
+					employee.getPerson().getLastName()+" state: "+
+					employee.getState()
+					);
+		}
 		
 	}
 	
