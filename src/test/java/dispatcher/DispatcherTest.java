@@ -18,15 +18,16 @@ import org.dispatcher.framework.inter.IDispatcher;
 import org.dispatcher.impl.Dispatcher;
 import org.junit.Test;
 
+
 /**
- * @author gabriel.cruz
- *
+ * @author Gcruz
+ * Clase encargada de efectuar las pruebas unitarias de gestión de llamadas
+ * Puede ejecutarse como Junit Test o puede ejecutarse como java Application.
  */
 public class DispatcherTest {
 	
 	protected static Logger log = Logger.getLogger(DispatcherTest.class);
 	
-	@Test	
 	public void test1() {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
@@ -42,6 +43,7 @@ public class DispatcherTest {
 			Customer customer = new Customer(1L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("JOHANN","BARRERA","SANCHEZ","80796901",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
 			int expectedResult = 1;
+			Thread.sleep(1000);
 			boolean resultBoolean = Dispatcher.getInstance().dispatchCall();
 			int result = 0;
 			if (resultBoolean) {
@@ -56,7 +58,6 @@ public class DispatcherTest {
 		}
 	}
 	
-	@Test
 	public void test2() {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
@@ -71,6 +72,7 @@ public class DispatcherTest {
 			Customer customer = new Customer(2L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("JULIETH","SARMIENTO","PALACIO","80796902",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
 			int expectedResult = 1;
+			Thread.sleep(1000);
 			boolean resultBoolean = Dispatcher.getInstance().dispatchCall();
 			int result = 0;
 			if (resultBoolean) {
@@ -82,7 +84,6 @@ public class DispatcherTest {
 		}
 	}
 	
-	@Test
 	public void test3() {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
@@ -98,6 +99,7 @@ public class DispatcherTest {
 			Customer customer = new Customer(3L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("CINDY","AVILA","CRUZ","80796903",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
 			int expectedResult = 1;
+			Thread.sleep(1000);
 			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
 			int result = 0;
 		
@@ -110,7 +112,6 @@ public class DispatcherTest {
 		}
 	}
 	
-	@Test
 	public void test4() {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
@@ -126,6 +127,7 @@ public class DispatcherTest {
 			Customer customer = new Customer(4L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("VIVIANA","LEGUIZAMON","MONROY","80796904",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
 			int expectedResult = 1;
+			Thread.sleep(1000);
 			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
 			int result = 0;
 			if (resultBoolean) {
@@ -137,7 +139,6 @@ public class DispatcherTest {
 		}
 	}
 	
-	@Test
 	public void test5() {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
@@ -153,6 +154,7 @@ public class DispatcherTest {
 		
 			Customer customer = new Customer(5L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("HELENA","PERILLA","PEDRAZA","80796905",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
+			Thread.sleep(1000);
 			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
 			int expectedResult = 1;
 			int result = 0;
@@ -165,7 +167,6 @@ public class DispatcherTest {
 		}
 	}
 	
-	@Test
 	public void test6() {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
@@ -180,6 +181,7 @@ public class DispatcherTest {
 			Customer customer = new Customer(6L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("OLGA","SARMIENTO","CACERES","80796906",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
 			int expectedResult = 1;
+			Thread.sleep(1000);
 			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
 			int result = 0;
 			if (resultBoolean) {
@@ -191,7 +193,6 @@ public class DispatcherTest {
 		}
 	}
 	
-	@Test
 	public void test7() {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
@@ -206,6 +207,7 @@ public class DispatcherTest {
 			Customer customer = new Customer(7L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("MICHAEL","COTRINA","CASTRO","80796907",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
 			int expectedResult = 1;
+			Thread.sleep(1000);
 			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
 			int result = 0;
 			if (resultBoolean) {
@@ -217,7 +219,6 @@ public class DispatcherTest {
 		}
 	}
 	
-	@Test
 	public void test8() {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
@@ -233,6 +234,7 @@ public class DispatcherTest {
 			Customer customer = new Customer(8L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("WILLIAM","RICO","ROJAS","80796908",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
 			int expectedResult = 1;
+			Thread.sleep(1000);
 			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
 			int result = 0;
 			if (resultBoolean) {
@@ -246,7 +248,6 @@ public class DispatcherTest {
 		}
 	}
 	
-	@Test
 	public void test9() {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
@@ -262,6 +263,7 @@ public class DispatcherTest {
 			Customer customer = new Customer(9L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("ANDREY","FIGUEROA","FERNANDEZ","80796909",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
 			int expectedResult = 1;
+			Thread.sleep(1000);
 			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
 			int result = 0;
 			if (resultBoolean) {
@@ -274,7 +276,7 @@ public class DispatcherTest {
 			fail("Error: "+e.getMessage());
 		}
 	}
-	@Test
+	
 	public void test10() {
 		try {
 			if(Dispatcher.getInstance().getOperators()!=null) {
@@ -289,6 +291,7 @@ public class DispatcherTest {
 		
 			Customer customer = new Customer(10L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("CARLOS ALBERTO","CLAVIJO","ACEVEDO","80796910",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
+			Thread.sleep(1000);
 			boolean resultBoolean =Dispatcher.getInstance().dispatchCall();
 			int expectedResult = 1;
 			int result = 0;
@@ -316,6 +319,7 @@ public class DispatcherTest {
 			Customer customer = new Customer(1L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("JOHANN","BARRERA","SANCHEZ","80796901",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
 			int expectedResult = 1;
+			Thread.sleep(1000);
 			boolean resultBoolean = Dispatcher.getInstance().dispatchCall();
 			int result = 0;
 			if (resultBoolean) {
@@ -325,6 +329,7 @@ public class DispatcherTest {
 			
 			customer = new Customer(2L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("JULIETH","SARMIENTO","PALACIO","80796902",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
+			Thread.sleep(1000);
 			resultBoolean = Dispatcher.getInstance().dispatchCall();
 			result = 0;
 			if (resultBoolean) {
@@ -334,6 +339,7 @@ public class DispatcherTest {
 			
 			customer = new Customer(3L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("CINDY","AVILA","CRUZ","80796903",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
+			Thread.sleep(1000);
 			resultBoolean =Dispatcher.getInstance().dispatchCall();
 			result = 0;
 			if (resultBoolean) {
@@ -343,6 +349,7 @@ public class DispatcherTest {
 			
 			 customer = new Customer(4L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("VIVIANA","LEGUIZAMON","MONROY","80796904",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
+			Thread.sleep(1000);
 			resultBoolean =Dispatcher.getInstance().dispatchCall();
 			result = 0;
 			if (resultBoolean) {
@@ -352,6 +359,7 @@ public class DispatcherTest {
 			
 			customer = new Customer(5L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("HELENA","PERILLA","PEDRAZA","80796905",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
+			Thread.sleep(1000);
 			resultBoolean =Dispatcher.getInstance().dispatchCall();
 			result = 0;
 			if (resultBoolean) {
@@ -360,7 +368,8 @@ public class DispatcherTest {
 			assertEquals(expectedResult, result, 1);
 			
 			customer = new Customer(6L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("OLGA","SARMIENTO","CACERES","80796906",new Date()));
-			Dispatcher.getInstance().setOnlineCustomer(customer);			
+			Dispatcher.getInstance().setOnlineCustomer(customer);
+			Thread.sleep(1000);
 			resultBoolean =Dispatcher.getInstance().dispatchCall();
 			result = 0;
 			if (resultBoolean) {
@@ -370,7 +379,7 @@ public class DispatcherTest {
 			
 			customer = new Customer(7L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("MICHAEL","COTRINA","CASTRO","80796907",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
-			
+			Thread.sleep(1000);
 			resultBoolean =Dispatcher.getInstance().dispatchCall();
 			result = 0;
 			if (resultBoolean) {
@@ -380,6 +389,7 @@ public class DispatcherTest {
 			
 			customer = new Customer(8L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("WILLIAM","RICO","ROJAS","80796908",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
+			Thread.sleep(1000);
 			resultBoolean =Dispatcher.getInstance().dispatchCall();
 			result = 0;
 			if (resultBoolean) {
@@ -389,6 +399,7 @@ public class DispatcherTest {
 			
 			customer = new Customer(9L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("ANDREY","FIGUEROA","FERNANDEZ","80796909",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
+			Thread.sleep(1000);
 			resultBoolean =Dispatcher.getInstance().dispatchCall();
 			result = 0;
 			if (resultBoolean) {
@@ -398,6 +409,7 @@ public class DispatcherTest {
 			
 			customer = new Customer(10L, IDispatcher.CUSTOMER_STATE_ACTIVE, IDispatcher.CUSTOMER_NATURAL_TYPE,new Person ("CARLOS ALBERTO","CLAVIJO","ACEVEDO","80796910",new Date()));
 			Dispatcher.getInstance().setOnlineCustomer(customer);
+			Thread.sleep(1000);
 			resultBoolean =Dispatcher.getInstance().dispatchCall();
 			result = 0;
 			if (resultBoolean) {
@@ -469,6 +481,13 @@ public class DispatcherTest {
 		test.test1();
 		test.test2();
 		test.test3();
+		test.printOperators();
+		if(Dispatcher.getInstance().getCallings()!=null) {
+			if(Dispatcher.getInstance().getCallings().size()>0) {
+				Dispatcher.getInstance().endCalling((Dispatcher.getInstance().getCallings().get(0)));
+			}
+		}
+		test.printOperators();
 		test.test4();
 		test.test5();
 		test.test6();
